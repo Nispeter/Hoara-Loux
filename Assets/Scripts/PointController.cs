@@ -30,14 +30,17 @@ public class PointController : MonoBehaviour
 
     private void DisplayBothScore(){
         DisplayScore(pointMesh,scoreCounter);
-        //DisplayScore(highMesh,hScoreCounter,"HS=:");
+        DisplayScore(highMesh,hScoreCounter,"HS=:");
     }
 
     private void DisplayScore(TextMeshProUGUI mesh, float score , string s){
-        pointMesh.text = s + score.ToString();
+        mesh.text = s + score.ToString();
     }
 
-     private void DisplayScore(TextMeshProUGUI mesh, float score){
-        pointMesh.text = score.ToString();
+    private void DisplayScore(TextMeshProUGUI mesh, float score){
+        mesh.text = score.ToString();
     }
+
+    private void GetHS(){}
+    private void SaveHS(){}
 }

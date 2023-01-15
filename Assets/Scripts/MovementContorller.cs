@@ -11,7 +11,7 @@ public class MovementContorller : MonoBehaviour
         lerpPos();
     }
 
-    private float[] fixedPositions = {-2f, -1f, 1f, 2f};
+    private float[] fixedPositions = {-1.8f, -.8f, .8f, 1.8f};
     [SerializeField] private int movementCount = 1;
     
     [SerializeField] private bool lockInput = false;
@@ -60,7 +60,9 @@ public class MovementContorller : MonoBehaviour
     }
 
     bool flipped = false;
+    
     private void OnFlip(){
+        lockInput = true;
         if(!flipped){
             (fixedPositions[1], fixedPositions[3]) = (fixedPositions[3], fixedPositions[1]);
             (fixedPositions[0], fixedPositions[2]) = (fixedPositions[2], fixedPositions[0]);
@@ -73,7 +75,5 @@ public class MovementContorller : MonoBehaviour
         }
         if(movementCount > 0)movementCount--;
         else movementCount ++;
-        lockInput = true;
-        
     }
 }
