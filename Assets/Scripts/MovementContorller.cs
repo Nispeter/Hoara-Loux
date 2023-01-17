@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MovementContorller : MonoBehaviour
+public class MovementContorller : AbstractGrid
 {
-
     private void FixedUpdate(){
+        flipSwap = columnCounter/2;
+        upB = (columnCounter-1)/2;
         TryMove();
         lerpPos();
     }
 
-    private float[] fixedPositions = {-1.8f, -.8f, .8f, 1.8f};
     [SerializeField] private int movementCount = 1;
     
     [SerializeField] private bool lockInput = false;
     private Vector2 movementInput;
 
     private int loB = 0;
-    private int upB = 1;
+    private int upB = 2;
 
     private void TryMove(){
         if(movementInput != Vector2.zero && !lockInput){
@@ -60,17 +60,21 @@ public class MovementContorller : MonoBehaviour
     }
 
     bool flipped = false;
+    private int flipSwap;
     
     private void OnFlip(){
         lockInput = true;
+        
         if(!flipped){
-            (fixedPositions[1], fixedPositions[3]) = (fixedPositions[3], fixedPositions[1]);
-            (fixedPositions[0], fixedPositions[2]) = (fixedPositions[2], fixedPositions[0]);
+            movementCount = columnCounter - movementCount ;
+            loB += flipSwap;
+            upB += flipSwap;
             flipped = true;
         }
         else{
-            (fixedPositions[3], fixedPositions[1]) = (fixedPositions[1], fixedPositions[3]);
-            (fixedPositions[2], fixedPositions[0]) = (fixedPositions[0], fixedPositions[2]);
+            movementCount = columnCounter - movementCount;
+            loB -= flipSwap;
+            upB -= flipSwap;
             flipped = false;
         }
         if(movementCount > 0)movementCount--;

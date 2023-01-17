@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4779778866231574509}
-  movementSpeed: 10
+  movementSpeed: 0.02
 --- !u!61 &7055358879317511912
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
