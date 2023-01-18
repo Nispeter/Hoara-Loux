@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d48a9675137f243a559e2596273fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 10
   hp: 10
 --- !u!114 &5457950724841294655
 MonoBehaviour:
@@ -62,8 +62,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e464dd46c8e4d4f8dea2b3278db111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fixedPositions:
+  - -1.8
+  - -1.2
+  - -0.6
+  - 0.6
+  - 1.2
+  - 1.8
+  columnCounter: 6
   rb: {fileID: 4779778866231574509}
-  movementSpeed: 0.02
+  movementSpeed: 4
 --- !u!61 &7055358879317511912
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -74,7 +82,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

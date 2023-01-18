@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8898202550433140279}
   - component: {fileID: 4837989526046211432}
-  - component: {fileID: 8898202550433140272}
+  - component: {fileID: 107588570080441761}
   - component: {fileID: 8898202550433140275}
   - component: {fileID: 8898202550433140274}
   - component: {fileID: 8898202550433141196}
@@ -127,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 8898202550433140278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1, y: -1.32, z: -0.051567778}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8898202550415943994}
@@ -146,10 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678a4d2a22b1e3b49bcfa6ada878e97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 10
   hp: 10
   bulletPrefab: {fileID: 4827150356615748601, guid: 8b7fffba600ab4643a3946e2741e1bf7, type: 3}
---- !u!114 &8898202550433140272
+--- !u!114 &107588570080441761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,6 +161,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18972eebb9df20149a00d136f50c4e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fixedPositions:
+  - -1.8
+  - -1.2
+  - -0.6
+  - 0.6
+  - 1.2
+  - 1.8
+  columnCounter: 6
   movementCount: 1
   lockInput: 0
   elapsedTime: 0

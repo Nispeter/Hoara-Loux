@@ -5,9 +5,11 @@ using UnityEngine.InputSystem;
 
 public class MovementContorller : AbstractGrid
 {
-    private void FixedUpdate(){
+    public void Start(){
         flipSwap = columnCounter/2;
         upB = (columnCounter-1)/2;
+    }
+    private void FixedUpdate(){ 
         TryMove();
         lerpPos();
     }
@@ -18,7 +20,7 @@ public class MovementContorller : AbstractGrid
     private Vector2 movementInput;
 
     private int loB = 0;
-    private int upB = 2;
+    private int upB;
 
     private void TryMove(){
         if(movementInput != Vector2.zero && !lockInput){
@@ -34,7 +36,7 @@ public class MovementContorller : AbstractGrid
             lockInput = false;
     }
 
-    private float transitionDuration = .08f;
+    private float transitionDuration = .1f;
     [SerializeField] private float elapsedTime = 0f;
 
     private void lerpPos(){
@@ -48,9 +50,9 @@ public class MovementContorller : AbstractGrid
             transform.position = Vector3.Lerp(tempTrans.position, targetPosition, lerpRatio);
             lockInput = true;
         }
-        else {
+        else if(tempTrans.position == targetPosition){
             elapsedTime = 0f;
-            lockInput = false;
+            //lockInput = false;
         }
        
     }
@@ -62,22 +64,29 @@ public class MovementContorller : AbstractGrid
     bool flipped = false;
     private int flipSwap;
     
-    private void OnFlip(){
-        lockInput = true;
-        
+    public void Flip(){
+        if(lockInput){
+            return;
+        }
         if(!flipped){
-            movementCount = columnCounter - movementCount ;
+            movementCount = columnCounter - 1 - movementCount ;
             loB += flipSwap;
             upB += flipSwap;
             flipped = true;
         }
         else{
-            movementCount = columnCounter - movementCount;
+            movementCount = columnCounter - 1 - movementCount;
             loB -= flipSwap;
             upB -= flipSwap;
             flipped = false;
         }
-        if(movementCount > 0)movementCount--;
-        else movementCount ++;
+        //Falta el tp de verdad
+        //transform.position.Set(fixedPositions[movementCount],gameObject.transform.position.y,0);
+        lockInput = true;
     }
+
+    private void OnFlip(){
+        Flip();
+    }
+
 }

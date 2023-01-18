@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : HealthDamage
 {
@@ -16,11 +17,12 @@ public class PlayerController : HealthDamage
     public GameObject bulletPrefab;
     
     private void Shoot(){
-        print("fire");
+        
         Instantiate(bulletPrefab, gameObject.transform.position, gameObject.transform.rotation);
     }
     
     private void OnFire(){
+        print("fire");
         Shoot();
     }
 
