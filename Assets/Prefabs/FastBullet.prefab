@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 531337592545256985}
   m_Layer: 0
   m_Name: FastBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 20
+  bulletDamage: 0
   rb: {fileID: 6813033074224869738}
 --- !u!50 &6813033074224869738
 Rigidbody2D:

@@ -16,15 +16,15 @@ public class PlayerController : HealthDamage
 
     public GameObject bulletPrefab;
     
-    private void Shoot(){
+    public void Shoot(){
         
         Instantiate(bulletPrefab, gameObject.transform.position, gameObject.transform.rotation);
     }
     
     private void OnFire(){
-        print("fire");
         Shoot();
     }
 
     
+        
 }

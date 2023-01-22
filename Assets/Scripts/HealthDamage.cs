@@ -19,5 +19,5 @@ public class HealthDamage : MonoBehaviour
 
     public void  OnHit(){}
 
-    public void Defeat(){}
+    public virtual void Defeat(){}
 }

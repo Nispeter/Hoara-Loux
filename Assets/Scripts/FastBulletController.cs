@@ -5,10 +5,12 @@ using UnityEngine;
 public class FastBulletController : MonoBehaviour
 {
     [SerializeField] private float movementSpeed =  30f;
+    public float bulletDamage;
     public Rigidbody2D rb;
 
     void Start()
     {
+        bulletDamage = 5f;
         rb = GetComponent<Rigidbody2D>();
         Move();
     }

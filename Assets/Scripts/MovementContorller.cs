@@ -43,7 +43,6 @@ public class MovementContorller : AbstractGrid
 
         Transform tempTrans = gameObject.transform;
         Vector3 targetPosition = new Vector3(fixedPositions[movementCount],tempTrans.position.y,0);
-
         if(tempTrans.position != targetPosition){
             elapsedTime += Time.deltaTime;
             float lerpRatio = elapsedTime/transitionDuration;
@@ -82,7 +81,7 @@ public class MovementContorller : AbstractGrid
         }
         //Falta el tp de verdad
         //transform.position.Set(fixedPositions[movementCount],gameObject.transform.position.y,0);
-        lockInput = true;
+        //lockInput = true;
     }
 
     private void OnFlip(){

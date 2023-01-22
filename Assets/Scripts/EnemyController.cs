@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyController : HealthDamage
 {
-    public float hp = 10f;
+    private float hp = 10f;
     void Start()
     {
         Health = hp;
@@ -15,5 +15,20 @@ public class EnemyController : HealthDamage
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "Bullet")
+            Hit(other.gameObject.GetComponent<FastBulletController>().bulletDamage);
+
+    }
+
+    private void Hit(float damage){
+        Health = Health - damage;
+        print(Health);
+    }
+
+    public override void Defeat(){
+        Destroy(gameObject);
     }
 }
