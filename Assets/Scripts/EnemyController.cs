@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 public class EnemyController : HealthDamage
 {
-    private float hp = 10f;
+    private float scoreAdd;
+    public GameObject temp;
+
     void Start()
     {
-        Health = hp;
+        //sPC = temp.GetComponent<PointController>();
+        //PC = GameObject.Find("ScoreCanvas").GetComponent<PointController>();
     }
 
     // Update is called once per frame
@@ -23,12 +26,17 @@ public class EnemyController : HealthDamage
 
     }
 
+    public void setScoreAdd(float score){
+        scoreAdd = score;
+    }
+
     private void Hit(float damage){
         Health = Health - damage;
         print(Health);
     }
 
     public override void Defeat(){
+        //PC.EnemyDefeated(scoreAdd);
         Destroy(gameObject);
     }
 }

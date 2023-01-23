@@ -28,6 +28,10 @@ public class PointController : MonoBehaviour
         DisplayBothScore();
     }
 
+    public void EnemyDefeated(float score){
+        scoreCounter += score;
+    }
+
     private void DisplayBothScore(){
         DisplayScore(pointMesh,scoreCounter);
         DisplayScore(highMesh,hScoreCounter,"HS=:");

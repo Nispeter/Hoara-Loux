@@ -20,6 +20,7 @@ public class EnemySpawnerController : AbstractGrid
         float tempPos = fixedPositions[Random.Range(0,6)];
         GameObject newEnemy = Instantiate(enemy, new Vector3 (tempPos, varY, 0), Quaternion.identity);
         interval -= intervalDecrement;
+        spawnInterval -= intervalDecrement;
         StartCoroutine(SpawnEnemy(interval, enemy)); 
     }
 }
