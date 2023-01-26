@@ -29,19 +29,23 @@ public class SpawnerController : AbstractGrid
 
     private IEnumerator SpawnEnemy(float interval, GameObject enemy, int n){
         yield return new WaitForSeconds(interval);
-        float tempPos = checkSpawnPos(n);
+        int tempSpace = checkSpawnPos(n);
+        float tempPos = fixedPositions[tempSpace];
         
         GameObject newEnemy = Instantiate(enemy, new Vector3 (tempPos, varY, 0), Quaternion.identity);
-        if(tempPos >= columnCounter/2)
+        if(tempSpace >= columnCounter/2){
             newEnemy.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true; 
+            print("flip sprite renderer");
+        }
+            
         interval -= intervalDecrement[n];
         spawnInterval[n] -= intervalDecrement[n];
         StartCoroutine(SpawnEnemy(interval, enemy, n)); 
     }
 
-    private float checkSpawnPos(int n){
+    private int checkSpawnPos(int n){
         if(n == 2)
-            return fixedPositions[Random.Range(columnCounter/2 - 1,columnCounter/2+1)];
-        return fixedPositions[Random.Range(0,columnCounter)];
+            return Random.Range(columnCounter/2 - 1,columnCounter/2+1);
+        return Random.Range(0,columnCounter);
     }
 }

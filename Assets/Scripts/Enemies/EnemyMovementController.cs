@@ -16,7 +16,7 @@ public class EnemyMovementController : AbstractGrid
         CheckDeath();
     }
 
-    public float movementSpeed = 2f;
+    public float movementSpeed;
 
     private void Move(){
         rb.velocity = -transform.up * movementSpeed;
