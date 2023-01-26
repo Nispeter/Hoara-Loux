@@ -13,7 +13,7 @@ public class CoinController : EnemyMovementController
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Player"){
-            coin.PC = GameObject.Find("ScoreCanvas").GetComponent<PointController>();
+            coin.PC = GameObject.Find("ScoreComponents").GetComponent<PointController>();
             coin.PC.addCore(coin.score);
             Implode();
         }

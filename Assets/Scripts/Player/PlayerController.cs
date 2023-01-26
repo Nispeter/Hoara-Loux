@@ -6,15 +6,10 @@ using UnityEngine.InputSystem;
 public class PlayerController : HealthDamage
 {
     public float hp = 10f;
-    void Start()
-    {
-        Health = hp;
-    }
-
-    private void FixedUpdate(){}
-
 
     public GameObject bulletPrefab;
+    
+    public GameOverMenuController MC;
     
     public void Shoot(){
         
@@ -27,14 +22,19 @@ public class PlayerController : HealthDamage
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Enemy"){
-            Health -= other.GetComponent<EnemyController>().damage;
-            print(Health);
-        }
-        
+            Hit(other.gameObject.GetComponent<EnemyController>().damage);
+        }  
+    }
+
+    public void Hit(float damage){
+        print(damage);
+        Health = Health - damage;
+        print(Health);
     }
 
     public override void Defeat(){
         Destroy(gameObject);
+        MC.GameOver();
     }
         
 }

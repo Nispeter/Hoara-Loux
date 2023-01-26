@@ -12,9 +12,7 @@ public class EnemyController : HealthDamage
 
     void Start()
     {
-        damage = 2f;
-        //sPC = temp.GetComponent<PointController>();
-        //PC = GameObject.Find("ScoreCanvas").GetComponent<PointController>();
+        
     }
 
     // Update is called once per frame
@@ -31,7 +29,7 @@ public class EnemyController : HealthDamage
 
     public void setScoreAdd(int score){
         scoreAdd = score;
-        PC = GameObject.Find("ScoreCanvas").GetComponent<PointController>();
+        PC = GameObject.Find("ScoreComponents").GetComponent<PointController>();
     }
 
     private void Hit(float damage){

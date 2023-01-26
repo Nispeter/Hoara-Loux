@@ -10,7 +10,6 @@ public class FastBulletController : MonoBehaviour
 
     void Start()
     {
-        bulletDamage = 5f;
         rb = GetComponent<Rigidbody2D>();
         Move();
     }

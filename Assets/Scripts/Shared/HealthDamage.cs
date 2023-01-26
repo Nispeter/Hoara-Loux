@@ -5,11 +5,16 @@ using UnityEngine;
 public class HealthDamage : MonoBehaviour
 {
     [SerializeField] private float health;
+    public float maxHealth;
 
     public float Health{
         set{
-            health = value;
-            if(health==0)
+            if(value > maxHealth){
+                health = maxHealth;
+            }
+            else
+                health = value;
+            if(health <= 0)
                 Defeat();
         }  
         get {
