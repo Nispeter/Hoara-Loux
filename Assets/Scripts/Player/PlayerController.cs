@@ -10,7 +10,13 @@ public class PlayerController : HealthDamage
     public GameObject bulletPrefab;
     
     public GameOverMenuController MC;
-    
+
+    private HitAnimationController HAC;
+
+    private void Start(){
+        HAC = GetComponent<HitAnimationController>();
+    }
+
     public void Shoot(){
         
         Instantiate(bulletPrefab, gameObject.transform.position, gameObject.transform.rotation);
@@ -23,6 +29,7 @@ public class PlayerController : HealthDamage
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Enemy"){
             Hit(other.gameObject.GetComponent<EnemyController>().damage);
+            HAC.HitAnimation();
         }  
     }
 

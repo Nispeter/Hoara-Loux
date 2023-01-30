@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class MovementContorller : AbstractGrid
 {
-    public void Start(){
+    public new void Start(){
         flipSwap = columnCounter/2;
         upB = (columnCounter-1)/2;
     }
@@ -18,6 +18,10 @@ public class MovementContorller : AbstractGrid
     
     [SerializeField] private bool lockInput = false;
     private Vector2 movementInput;
+
+    public void SetMovementInput(Vector2 movement){
+        movementInput = movement;
+    }
 
     private int loB = 0;
     private int upB;
@@ -32,8 +36,12 @@ public class MovementContorller : AbstractGrid
             }
             lockInput = true;  
         }
-        else if(movementInput == Vector2.zero)
+        else if(movementInput == Vector2.zero){
             lockInput = false;
+        }
+        else
+            movementInput = Vector2.zero;
+            
     }
 
     private float transitionDuration = .1f;
@@ -80,7 +88,7 @@ public class MovementContorller : AbstractGrid
             flipped = false;
         }
         //Falta el tp de verdad
-        //transform.position.Set(fixedPositions[movementCount],gameObject.transform.position.y,0);
+        gameObject.transform.position= new Vector3(fixedPositions[movementCount],gameObject.transform.position.y,0);
         //lockInput = true;
     }
 

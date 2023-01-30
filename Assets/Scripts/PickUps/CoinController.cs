@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoinController : EnemyMovementController
 {
     public PickUp coin;
+
     new void Start()
     {
         movementSpeed = coin.speed;

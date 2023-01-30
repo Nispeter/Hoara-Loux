@@ -6,7 +6,7 @@ public class EnemyMovementController : AbstractGrid
 {
     public Rigidbody2D rb; 
 
-    public void Start(){
+    public new void Start(){
         rb = GetComponent<Rigidbody2D>();
         Move();
     }

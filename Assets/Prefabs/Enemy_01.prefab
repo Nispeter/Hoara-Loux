@@ -48,14 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e464dd46c8e4d4f8dea2b3278db111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixedPositions:
-  - -1.8
-  - -1.2
-  - -0.6
-  - 0.6
-  - 1.2
-  - 1.8
-  columnCounter: 6
   rb: {fileID: 4779778866231574509}
   movementSpeed: 4
 --- !u!114 &371359815155755967
@@ -179,7 +171,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d7b319060bbadc6448bc0660b4558d5f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -199,8 +191,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 13b9fd608798ad7448f9970f065d9eae, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 2105d9ee778265a4198ed6f18039c473, type: 3}
   m_Color: {r: 0.7019608, g: 0.21568628, b: 0.44313726, a: 1}
   m_FlipX: 0
   m_FlipY: 0

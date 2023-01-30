@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -141,9 +141,11 @@ GameObject:
   - component: {fileID: 8898202550433140279}
   - component: {fileID: 7137536485055650117}
   - component: {fileID: 8671099856406082037}
+  - component: {fileID: 944752377755387951}
   - component: {fileID: 8898202550433140275}
   - component: {fileID: 8898202550433140274}
   - component: {fileID: 8898202550433141196}
+  - component: {fileID: 4967121966485785506}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -196,17 +198,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18972eebb9df20149a00d136f50c4e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixedPositions:
-  - -2
-  - -1.3
-  - -0.6
-  - 0.6
-  - 1.3
-  - 2
-  columnCounter: 6
   movementCount: 1
   lockInput: 0
   elapsedTime: 0
+--- !u!114 &944752377755387951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898202550433140278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e850ec4ae16820248b56469fe096b8c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _anim: {fileID: 4967121966485785506}
 --- !u!50 &8898202550433140275
 Rigidbody2D:
   serializedVersion: 4
@@ -274,3 +281,23 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &4967121966485785506
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898202550433140278}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a0bbd29d28f20fb4fa0cdc05985bb6a8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

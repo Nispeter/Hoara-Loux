@@ -14,6 +14,10 @@ public class PointController : MonoBehaviour
     private float timeElapsed = 0f;
     private float timeScoreRatio = 1f;
 
+    private void Start(){
+        hScoreCounter = getHighScore();
+    }
+
     private void FixedUpdate (){
          UpdateScore();
     }
@@ -28,6 +32,14 @@ public class PointController : MonoBehaviour
         DisplayBothScore();
     }
 
+    public int GetScoreCounter(){
+        return scoreCounter;
+    }
+
+    public int GetHScoreCounter(){
+        return hScoreCounter;
+    }
+
     public void EnemyDefeated(int score){
         scoreCounter += score;
     }
@@ -36,9 +48,13 @@ public class PointController : MonoBehaviour
         scoreCounter += score;
     }
 
+    private int getHighScore(){
+        return PlayerPrefs.GetInt("HighScore",0);
+    }
+
     private void DisplayBothScore(){
         DisplayScore(pointMesh,scoreCounter);
-        DisplayScore(highMesh,hScoreCounter,"HS=:");
+        DisplayScore(highMesh,hScoreCounter,"HS = : ");
     }
 
     private void DisplayScore(TextMeshProUGUI mesh, int score , string s){
@@ -49,6 +65,5 @@ public class PointController : MonoBehaviour
         mesh.text = score.ToString();
     }
 
-    private void GetHS(){}
     private void SaveHS(){}
 }
