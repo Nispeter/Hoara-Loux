@@ -14,6 +14,7 @@ public class MovementContorller : AbstractGrid
         lerpPos();
     }
 
+    [SerializeField] private AudioSource flipES;
     [SerializeField] private int movementCount = 1;
     
     [SerializeField] private bool lockInput = false;
@@ -88,6 +89,7 @@ public class MovementContorller : AbstractGrid
             flipped = false;
         }
         //Falta el tp de verdad
+        flipES.Play();
         gameObject.transform.position= new Vector3(fixedPositions[movementCount],gameObject.transform.position.y,0);
         //lockInput = true;
     }

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5429315039632317122}
-  movementSpeed: 2
+  movementSpeed: 3
   coin: {fileID: 11400000, guid: 4ee8c5308d2b5a042b42e06b74c5c1b8, type: 2}
 --- !u!50 &5429315039632317122
 Rigidbody2D:

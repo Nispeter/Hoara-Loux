@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5429315039632317122}
-  movementSpeed: 2
+  movementSpeed: 4
   repair: {fileID: 11400000, guid: c29bb14f726c5a842a71f02884560e6e, type: 2}
   heal: 2
 --- !u!50 &5429315039632317122

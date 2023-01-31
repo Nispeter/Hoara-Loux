@@ -6,20 +6,37 @@ using UnityEngine.InputSystem;
 public class PlayerController : HealthDamage
 {
     public float hp = 10f;
-
     public GameObject bulletPrefab;
     
     public GameOverMenuController MC;
-
     private HitAnimationController HAC;
+
+    [SerializeField] private AudioSource ShootSE;
+    [SerializeField] private AudioSource HitSE;
+
+    private int ammoCounter = 3;
+    private int maxAmmo = 3;
+    private float reloadTime = 10f;
 
     private void Start(){
         HAC = GetComponent<HitAnimationController>();
     }
 
+    private IEnumerator Reload(float interval){
+        yield return new WaitForSeconds(interval);
+    }
+
     public void Shoot(){
+        if(ammoCounter > 0){
+            ShootSE.Play();
+            Instantiate(bulletPrefab, gameObject.transform.position, gameObject.transform.rotation);
+            ammoCounter--;
+        }
+        else {
+            Reload(reloadTime);
+            ammoCounter = maxAmmo;
+        }
         
-        Instantiate(bulletPrefab, gameObject.transform.position, gameObject.transform.rotation);
     }
     
     private void OnFire(){
@@ -34,9 +51,9 @@ public class PlayerController : HealthDamage
     }
 
     public void Hit(float damage){
-        print(damage);
+        HitSE.Play();
         Health = Health - damage;
-        print(Health);
+
     }
 
     public override void Defeat(){

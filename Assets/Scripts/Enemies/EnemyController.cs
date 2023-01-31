@@ -10,6 +10,9 @@ public class EnemyController : HealthDamage
 
     public float damage;
 
+    [SerializeField] private AudioSource hitSE;
+    [SerializeField] private AudioSource defeatSE;
+
     void Start()
     {
         
@@ -33,10 +36,12 @@ public class EnemyController : HealthDamage
     }
 
     private void Hit(float damage){
+        hitSE.Play();
         Health = Health - damage;
     }
 
     public override void Defeat(){
+        hitSE.Play();
         PC.EnemyDefeated(scoreAdd);
         Destroy(gameObject);
     }

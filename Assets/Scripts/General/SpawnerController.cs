@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnerController : AbstractGrid
 {
-    private static int mult = 4;
+    private static int mult = 7;
     public GameObject[] spawn = new GameObject[mult];
     /*
     spawn[0] = enemy_01
@@ -37,8 +37,7 @@ public class SpawnerController : AbstractGrid
         yield return new WaitForSeconds(interval);
     }
 
-    private IEnumerator SpawnEnemy(float interval, GameObject enemy, int n, int id){
-        if(n==1)print("spawn ");
+    private IEnumerator SpawnEnemy( float interval, GameObject enemy, int n, int id){
         if(id == 0)
             yield return WaitInit(timeUntilSpawn[n]);
         else 
@@ -50,16 +49,23 @@ public class SpawnerController : AbstractGrid
         if(tempSpace >= columnCounter/2 && (n == 2 || n == 4)){ //change this crappy solution eventually.
             newEnemy.transform.localScale =  new Vector3(newEnemy.transform.localScale.x * -1,newEnemy.transform.localScale.y,1);
         }
-            
-        interval -= intervalDecrement[n];
-        spawnInterval[n] -= intervalDecrement[n];
-        StartCoroutine(SpawnEnemy(interval, enemy, n, id+1)); 
+        id = IncrementDifficulty(n,id);     //Mala solucion
+        
+        StartCoroutine(SpawnEnemy(spawnInterval[n], enemy, n, id+1)); 
+    }
+
+    private int IncrementDifficulty(int n, int id){
+        if(id > 25 && spawnInterval[n] > 0.4f){
+            id -= 25;
+            spawnInterval[n] -= intervalDecrement[n];
+        }
+        return id;
     }
 
     private int checkSpawnPos(int n){
-        if(n == 2)
+        if(n == 2 || n == 6)
             return Random.Range(columnCounter/2 - 1,columnCounter/2+1);
-        if(n == 4){
+        if(n == 4 || n == 7){
             int temp = Random.Range(0,2);
             if(temp == 0){
                 return 0;
